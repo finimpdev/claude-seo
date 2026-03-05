@@ -1,0 +1,23 @@
+{
+  "name": "claude-seo-marketplace",
+  "description": "SEO skills and tools for Claude Code and Cowork. Comprehensive analysis covering technical SEO, schema markup, Core Web Vitals, E-E-A-T, GEO, and strategic planning.",
+  "owner": {
+    "name": "finimpdev",
+    "url": "https://github.com/finimpdev"
+  },
+  "homepage": "https://github.com/finimpdev/claude-seo",
+  "plugins": [
+    {
+      "name": "claude-seo",
+      "description": "Comprehensive SEO analysis for Claude Code and Cowork. Covers technical SEO, on-page analysis, E-E-A-T, schema markup, image optimization, sitemap architecture, AI search optimization (GEO), hreflang, programmatic SEO, and strategic planning.",
+      "source": {
+        "source": "github",
+        "repo": "finimpdev/claude-seo"
+      },
+      "version": "1.2.0",
+      "category": "productivity",
+      "tags": ["seo", "technical-seo", "schema", "core-web-vitals", "geo", "sitemap", "e-e-a-t"],
+      "strict": true
+    }
+  ]
+}
