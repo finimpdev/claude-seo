@@ -1,0 +1,66 @@
+{
+  "name": "claude-seo",
+  "version": "1.2.0",
+  "description": "Comprehensive SEO analysis for Claude Code and Cowork. Covers technical SEO, on-page analysis, E-E-A-T, schema markup, image optimization, sitemap architecture, AI search optimization (GEO), hreflang, programmatic SEO, and strategic planning.",
+  "author": {
+    "name": "AgriciDaniel",
+    "url": "https://github.com/AgriciDaniel/claude-seo"
+  },
+  "homepage": "https://github.com/AgriciDaniel/claude-seo",
+  "repository": "https://github.com/AgriciDaniel/claude-seo",
+  "license": "MIT",
+  "keywords": ["seo", "technical-seo", "schema", "core-web-vitals", "geo", "sitemap", "e-e-a-t"],
+  "category": "productivity",
+
+  "skills": [
+    "./seo",
+    "./skills/seo-audit",
+    "./skills/seo-competitor-pages",
+    "./skills/seo-content",
+    "./skills/seo-geo",
+    "./skills/seo-hreflang",
+    "./skills/seo-images",
+    "./skills/seo-page",
+    "./skills/seo-plan",
+    "./skills/seo-programmatic",
+    "./skills/seo-schema",
+    "./skills/seo-sitemap",
+    "./skills/seo-technical"
+  ],
+
+  "agents": [
+    "./agents/seo-technical.md",
+    "./agents/seo-content.md",
+    "./agents/seo-schema.md",
+    "./agents/seo-sitemap.md",
+    "./agents/seo-performance.md",
+    "./agents/seo-visual.md"
+  ],
+
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/validate-schema.py \"$FILE_PATH\"",
+            "exitCodes": { "2": "block" }
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/pre-commit-seo-check.sh",
+            "exitCodes": { "2": "block" }
+          }
+        ]
+      }
+    ]
+  }
+}
